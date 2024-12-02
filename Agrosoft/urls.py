@@ -21,29 +21,21 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
-    path('tipo_plaga/', include('apps.Cultivo.tipo_plaga.api.router')),  # Rutas de la app tipo_plaga
-    path('plagas/', include('apps.Cultivo.plagas.api.router')),  # Rutas de la app plagas
-    path('productos_control/', include('apps.Cultivo.productos_control.api.router')),  # Rutas de productos control
-    path('tipo_control/', include('apps.Cultivo.tipo_control.api.router')),  # Rutas de tipo_control
-    path('controles/', include('apps.Cultivo.controles.api.router')),  # Rutas de controles
-    
-    # Apps relacionadas con especies y cultivos
-    path('especies/', include('apps.Cultivo.especies.api.router')),  # Rutas de especies
-    path('tipo_especies/', include('apps.Cultivo.tipo_especies.api.router')),  # Rutas de tipo_especies
-    path('cultivos/', include('apps.Cultivo.cultivos.api.router')),  # Rutas de cultivos
-    path('fase_lunar/', include('apps.Cultivo.fase_lunar.api.router')),  # Rutas de fase_lunar
-    
-    # Apps relacionadas con semillero y bodega
-    path('semillero/', include('apps.Cultivo.semillero.api.router')),  # Rutas de semillero
+    path('tipo_plaga/', include('apps.Cultivo.tipo_plaga.api.router')),  
+    path('plagas/', include('apps.Cultivo.plagas.api.router')), 
+    path('productos_control/', include('apps.Cultivo.productos_control.api.router')),  
+    path('tipo_control/', include('apps.Cultivo.tipo_control.api.router')), 
+    path('controles/', include('apps.Cultivo.controles.api.router')), 
+    path('especies/', include('apps.Cultivo.especies.api.router')),  
+    path('tipo_especies/', include('apps.Cultivo.tipo_especies.api.router')),  
+    path('cultivos/', include('apps.Cultivo.cultivos.api.router')), 
+    path('fase_lunar/', include('apps.Cultivo.fase_lunar.api.router')),  
+    path('semillero/', include('apps.Cultivo.semillero.api.router')),  
     path('bancal/', include('apps.Cultivo.bancal.api.router')),
-    
-    # Apps relacionadas con tareas y actividades
-    path('actividades/', include('apps.Cultivo.actividades.api.router')),  # Rutas de actividades
-    path('tipo_actividad/', include('apps.Cultivo.tipo_actividad.api.router')),  # Rutas de tipo_actividad
-    
-    # Apps relacionadas con plantaciones, roles y usuarios
-    path('plantaciones/', include('apps.Cultivo.plantaciones.api.router')),  # Rutas de plantaciones
-    path('afecciones/', include('apps.Cultivo.afecciones.api.router')),  # Rutas de afecciones
+    path('actividades/', include('apps.Cultivo.actividades.api.router')),  
+    path('tipo_actividad/', include('apps.Cultivo.tipo_actividad.api.router')),  
+    path('plantaciones/', include('apps.Cultivo.plantaciones.api.router')), 
+    path('afecciones/', include('apps.Cultivo.afecciones.api.router')),  
     path('residuos/', include('apps.Cultivo.residuos.api.router')),
     path('tipos_residuos/', include('apps.Cultivo.tipos_residuos.api.router')),
     path('programacion/', include('apps.Cultivo.programacion.api.router')),
