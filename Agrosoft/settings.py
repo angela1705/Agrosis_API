@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,7 +29,6 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'apps.Usuarios.usuarios',
     'apps.Usuarios.usuario_rol',
     'apps.Usuarios.roles_acciones',
-     'apps.Cultivo.lotes',
     'apps.Cultivo.bancal',
     'apps.Cultivo.tipo_plaga',
     'apps.Cultivo.plagas',
@@ -51,10 +50,7 @@ INSTALLED_APPS = [
     'apps.Cultivo.tipo_especies',
     'apps.Cultivo.cultivos',
     'apps.Cultivo.fase_lunar',
-    'apps.Cultivo.conecta',
     'apps.Cultivo.semillero',
-    'apps.Cultivo.semillero_insumo',
-    'apps.Cultivo.semillero_herramienta',
     'apps.Cultivo.tipo_control',
     'apps.Cultivo.afecciones',
     'apps.Cultivo.controles',
@@ -62,7 +58,6 @@ INSTALLED_APPS = [
     'apps.Cultivo.plantaciones',
     'apps.Cultivo.tipo_actividad',
     'apps.Cultivo.actividades',
-    'apps.Cultivo.tareas',
     'apps.Iot.datos_meteorologicos',
     'apps.Iot.sensores',
     'apps.Iot.configuraciones',
@@ -76,6 +71,11 @@ INSTALLED_APPS = [
      'rest_framework',
     'rest_framework_simplejwt',
     'drf_yasg',
+    'apps.Cultivo.residuos',
+    'apps.Cultivo.tipos_residuos',
+    'apps.Cultivo.programacion',
+    'apps.Cultivo.cosechas',
+    'apps.Cultivo.lotes',
 ]
 
 MIDDLEWARE = [
@@ -115,9 +115,9 @@ WSGI_APPLICATION = 'Agrosoft.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'agrosoft',
+        'NAME': 'Agrosoft',
         'USER': 'postgres',
-        'PASSWORD': 'adso103',
+        'PASSWORD': 'root',
         'HOST': 'localhost', 
         'PORT': '5432',
         'OPTIONS': {
@@ -162,6 +162,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = './static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  
+
 AUTH_USER_MODEL = 'usuarios.Usuarios'
 
 # Default primary key field type
