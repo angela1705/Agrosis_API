@@ -1,3 +1,5 @@
 from django.db import models
+from apps.Iot.sensores.models import SensorAbs
 
-# Create your models here.
+class Temperaturas(SensorAbs):
+    lumens = models.IntegerField()
