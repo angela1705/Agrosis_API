@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from rest_framework.viewsets import ModelViewSet
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from ..models import HumedadAmbiental
+from .serializers import HumedadAmbientalSerializer
 
-# Create your views here.
+class HumedadAmbientalViewset(ModelViewSet):
+    queryset = HumedadAmbiental.objects.all()
+    serializer_class = HumedadAmbientalSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
