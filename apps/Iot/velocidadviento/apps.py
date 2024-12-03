@@ -3,4 +3,4 @@ from django.apps import AppConfig
 
 class VelocidadvientoConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'velocidadviento'
+    name = 'apps.Iot.velocidadviento'
