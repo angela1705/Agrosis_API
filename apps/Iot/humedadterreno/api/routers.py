@@ -1,4 +1,4 @@
 from rest_framework.routers import DefaultRouter
-from .views import HumedadAmbientalViewset
+from .views import HumedadTerrenoViewset
 HumedadAmbientalRouter = DefaultRouter()
-HumedadAmbientalRouter.register(prefix='humedadambiental',viewset=HumedadAmbientalViewset,basename='humedadambiental')
+HumedadAmbientalRouter.register(prefix='humedadterreno',viewset=HumedadTerrenoViewset,basename='humedadterreno')
