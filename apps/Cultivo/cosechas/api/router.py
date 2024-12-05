@@ -1,10 +1,6 @@
-from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from apps.Cultivo.cosechas.api.views import CosechaViewSet
 
-router = DefaultRouter()
-router.register(r'cosechas', CosechaViewSet)
+cosechaRouter = DefaultRouter()
+cosechaRouter.register(prefix='cosechas', viewset=CosechaViewSet, basename='cosechas')
 
-urlpatterns = [
-    path('', include(router.urls)),
-]

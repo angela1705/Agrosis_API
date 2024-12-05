@@ -1,10 +1,6 @@
-from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from apps.Cultivo.lotes.api.views import LoteViewSet
 
-router = DefaultRouter()
-router.register(r'lotes', LoteViewSet)
+lotesRouter = DefaultRouter()
+lotesRouter.register(prefix='lote', viewset=LoteViewSet, basename='lote')
 
-urlpatterns = [
-    path('', include(router.urls)),
-]

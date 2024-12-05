@@ -1,10 +1,7 @@
-from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from apps.Cultivo.semillero.api.views import SemilleroViewSet
 
-router = DefaultRouter()
-router.register(r'semillero', SemilleroViewSet)
+semilleroRouter = DefaultRouter()
 
-urlpatterns = [
-    path('', include(router.urls)),
-]
+semilleroRouter.register(prefix='semillero', viewset=SemilleroViewSet, basename='semillero')
+

@@ -1,10 +1,6 @@
-from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from apps.Cultivo.plantaciones.api.views import PlantacionViewSet
 
-router = DefaultRouter()
-router.register(r'plantaciones', PlantacionViewSet)
+plantacionRouter = DefaultRouter()
+plantacionRouter.register(prefix='plantaciones', viewset=PlantacionViewSet, basename='platantaciones')
 
-urlpatterns = [
-    path('', include(router.urls)),
-]
