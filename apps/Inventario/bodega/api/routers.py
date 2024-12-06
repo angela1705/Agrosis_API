@@ -1,10 +1,7 @@
-from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .views import BodegaViewSet
 
-router = DefaultRouter()
-router.register(r'bodega', BodegaViewSet, basename='bodega')
+bodegaRouter = DefaultRouter()
+bodegaRouter.register(prefix='bodega', viewset=BodegaViewSet, basename='bodega')
 
-urlpatterns = [
-    path('', include(router.urls)),
-]
+urlpatterns = bodegaRouter.urls
