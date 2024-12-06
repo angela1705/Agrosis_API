@@ -72,6 +72,8 @@ INSTALLED_APPS = [
     'apps.Iot.temperaturas',
     'apps.Iot.velocidadviento',
     'apps.Finanzas.pagos',
+    'apps.Finanzas.venta',
+    'apps.Finanzas.salario',
     'apps.Inventario.bodega',
     'apps.Inventario.bodega_insumo',
     'apps.Inventario.bodega_herramienta',
