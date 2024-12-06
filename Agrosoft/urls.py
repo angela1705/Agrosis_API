@@ -40,6 +40,10 @@ from apps.Cultivo.tipos_residuos.api.router import tipoResiduoRouter
 from apps.Cultivo.semillero_herramienta.api.router import semilleroHRouter
 from apps.Cultivo.semillero_insumo.api.router import semilleroInsumoRouter
 from apps.Cultivo.tareas.api.router import tareaRouter
+from apps.Finanzas.pagos.api.router import pagoRouter
+from apps.Finanzas.venta.api.router import ventaRouter
+from apps.Finanzas.salario.api.router import salarioRouter
+
 
 
 router = DefaultRouter()
@@ -81,6 +85,11 @@ router.registry.extend(tipoResiduoRouter.registry)
 router.registry.extend(semilleroHRouter.registry)
 router.registry.extend(semilleroInsumoRouter.registry)
 router.registry.extend(tareaRouter.registry)
+router.registry.extend(pagoRouter.registry)
+router.registry.extend(ventaRouter.registry)
+router.registry.extend(salarioRouter.registry)
+
+
 
 
 
