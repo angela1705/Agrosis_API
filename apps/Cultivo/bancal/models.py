@@ -1,3 +1,10 @@
 from django.db import models
-
-# Create your models here.
+class Bancal(models.Model):
+    nombre = models.CharField(max_length=15)
+    TamX = models.DecimalField(max_digits=3, decimal_places=2, null=True, blank=True)
+    TamY = models.DecimalField(max_digits=3, decimal_places=2, null=True, blank=True)
+    posY = models.DecimalField(max_digits=3, decimal_places=2, null=True, blank=True)
+    posX = models.DecimalField(max_digits=3, decimal_places=2, null=True, blank=True)
+    lote = models.ForeignKey('lotes.Lote', on_delete=models.CASCADE, null=True)
+    def __str__(self):
+        return self.nombre
