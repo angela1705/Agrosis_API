@@ -1,7 +1,7 @@
 from django.db import models
 
 class Tarea(models.Model):
-    usuario = models.ForeignKey('usuarios.Usuario', on_delete=models.CASCADE) 
+    usuario = models.ForeignKey('usuarios.Usuarios', on_delete=models.CASCADE) 
     cultivo = models.ForeignKey('cultivos.Cultivo', on_delete=models.CASCADE) 
     titulo = models.CharField(max_length=100)
     descripcion = models.TextField(blank=True, null=True)
