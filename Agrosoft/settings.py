@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'apps.Usuarios.usuarios',
     'apps.Usuarios.usuario_rol',
     'apps.Usuarios.roles_acciones',
-     'apps.Cultivo.lotes',
+    'apps.Cultivo.lotes',
     'apps.Cultivo.bancal',
     'apps.Cultivo.tipo_plaga',
     'apps.Cultivo.plagas',
