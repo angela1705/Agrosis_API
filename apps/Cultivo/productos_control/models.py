@@ -2,7 +2,7 @@ from django.db import models
 
 class ProductoControl(models.Model):
     precio = models.IntegerField()
-    nombre = models.CharField(max_length=30)
+    nombre = models.CharField(max_length=30, unique=True)
     compuestoActivo = models.CharField(max_length=50)
     fichaTecnica = models.TextField()
     Contenido = models.IntegerField()

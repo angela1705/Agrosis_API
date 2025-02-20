@@ -125,9 +125,9 @@ WSGI_APPLICATION = 'Agrosoft.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Agrosoft',
+        'NAME': 'Agrosis',
         'USER': 'postgres',
-        'PASSWORD': 'adso2024',
+        'PASSWORD': 'root',
         'HOST': 'localhost', 
         'PORT': '5432',
         'OPTIONS': {

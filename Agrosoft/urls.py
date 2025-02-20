@@ -9,9 +9,32 @@ from apps.Usuarios.roles_acciones.api.routers import RolesAccionesRouter
 from apps.Usuarios.usuario_rol.api.routers import UsuarioRolRouter
 from apps.Usuarios.usuarios.api.routers import UsuariosRouter
 
-
+from apps.Cultivo.actividades.api.router import actividadRouter 
+from apps.Cultivo.afecciones.api.router import afeccionRouter 
+from apps.Cultivo.bancal.api.router import bancalRouter 
+from apps.Cultivo.controles.api.router import controlRouter 
+from apps.Cultivo.cosechas.api.router import cosechaRouter 
+from apps.Cultivo.cultivos.api.router import cultivoRouter 
+from apps.Cultivo.especies.api.router import especiesRouter 
+from apps.Cultivo.fase_lunar.api.router import faseLunarRouter 
+from apps.Cultivo.lotes.api.router import lotesRouter 
+from apps.Cultivo.plagas.api.router import plagasRouter 
+from apps.Cultivo.plantaciones.api.router import plantacionRouter 
+from apps.Cultivo.productos_control.api.router import productosControlRouter 
+from apps.Cultivo.programacion.api.router import programacionRouter 
+from apps.Cultivo.residuos.api.router import residuosRouter 
+from apps.Cultivo.semillero.api.router import semilleroRouter 
+from apps.Cultivo.tipo_actividad.api.router import tipoActividadRouter 
+from apps.Cultivo.tipo_control.api.router import tipoControlRouter 
+from apps.Cultivo.tipo_especies.api.router import tipoEspecieRouter 
+from apps.Cultivo.tipo_plaga.api.router import tipoPlagaRouter 
+from apps.Cultivo.tipos_residuos.api.router import tipoResiduoRouter 
+from apps.Cultivo.semillero_herramienta.api.router import semilleroHRouter
+from apps.Cultivo.semillero_insumo.api.router import semilleroInsumoRouter
+from apps.Cultivo.tareas.api.router import tareaRouter
 
 router = DefaultRouter()
+routerCultivos = DefaultRouter()
 
 router.registry.extend(salarioRouter.registry)
 router.registry.extend(PermisosRouter.registry)
@@ -19,6 +42,30 @@ router.registry.extend(RolPermisoRouter.registry)
 router.registry.extend(UsuarioRolRouter.registry)
 router.registry.extend(UsuariosRouter.registry)
 router.registry.extend(RolesAccionesRouter.registry)
+
+router.registry.extend(actividadRouter.registry)
+router.registry.extend(afeccionRouter.registry)
+router.registry.extend(bancalRouter.registry)
+router.registry.extend(controlRouter.registry)
+router.registry.extend(cosechaRouter.registry)
+router.registry.extend(cultivoRouter.registry)
+router.registry.extend(especiesRouter.registry)
+router.registry.extend(faseLunarRouter.registry)
+router.registry.extend(lotesRouter.registry)
+router.registry.extend(plagasRouter.registry)
+router.registry.extend(plantacionRouter.registry)
+router.registry.extend(productosControlRouter.registry)
+router.registry.extend(programacionRouter.registry)
+router.registry.extend(residuosRouter.registry)
+router.registry.extend(semilleroRouter.registry)
+router.registry.extend(tipoActividadRouter.registry)
+router.registry.extend(tipoControlRouter.registry)
+router.registry.extend(tipoEspecieRouter.registry)
+router.registry.extend(tipoPlagaRouter.registry)
+router.registry.extend(tipoResiduoRouter.registry)
+router.registry.extend(semilleroHRouter.registry)
+router.registry.extend(semilleroInsumoRouter.registry)
+router.registry.extend(tareaRouter.registry)
 
 
 from drf_yasg.views import get_schema_view
