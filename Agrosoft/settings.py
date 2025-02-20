@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.Usuarios.roles',
     'apps.Usuarios.permisos',
     'apps.Usuarios.rol_permiso',
     'apps.Usuarios.usuarios',
@@ -128,7 +127,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'Agrosoft',
         'USER': 'postgres',
-        'PASSWORD': 'root',
+        'PASSWORD': 'adso2024',
         'HOST': 'localhost', 
         'PORT': '5432',
         'OPTIONS': {

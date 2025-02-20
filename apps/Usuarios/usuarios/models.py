@@ -1,7 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
-class Rol(models.Model):
+class Roles(models.Model):
     opciones = [
         ('aprendiz', 'Aprendiz'),
         ('pasante', 'Pasante'),
@@ -16,7 +16,7 @@ class Rol(models.Model):
         return self.rol
 
 class Usuarios(AbstractUser): 
-    rol = models.ForeignKey(Rol, on_delete=models.SET_NULL, null=True)
+    rol = models.ForeignKey(Roles, on_delete=models.SET_NULL, null=True)
     nombre = models.CharField(max_length=30)
     apellido = models.CharField(max_length=30)
     email = models.EmailField(unique=True)
