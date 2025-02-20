@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -81,6 +82,7 @@ INSTALLED_APPS = [
      'rest_framework',
     'rest_framework_simplejwt',
     'drf_yasg',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -111,7 +113,13 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Agrosoft.wsgi.application'
+ASGI_APPLICATION = 'Agrosoft.asgi.application'
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer",  # Solo para desarrollo
+    },
+}
 
 
 # Database
@@ -122,7 +130,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'agrosoft',
         'USER': 'postgres',
-        'PASSWORD': 'adso103',
+        'PASSWORD': '1234',
         'HOST': 'localhost', 
         'PORT': '5432',
         'OPTIONS': {
