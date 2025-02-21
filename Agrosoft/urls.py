@@ -9,9 +9,34 @@ from apps.Usuarios.roles_acciones.api.routers import RolesAccionesRouter
 from apps.Usuarios.usuario_rol.api.routers import UsuarioRolRouter
 from apps.Usuarios.usuarios.api.routers import UsuariosRouter
 
+from apps.Cultivo.actividades.api.router import actividadRouter 
+from apps.Cultivo.afecciones.api.router import afeccionRouter 
+from apps.Cultivo.bancal.api.router import bancalRouter 
+from apps.Cultivo.controles.api.router import controlRouter 
+from apps.Cultivo.cosechas.api.router import cosechaRouter 
+from apps.Cultivo.cultivos.api.router import cultivoRouter 
+from apps.Cultivo.especies.api.router import especiesRouter 
+from apps.Cultivo.fase_lunar.api.router import faseLunarRouter 
+from apps.Cultivo.lotes.api.router import lotesRouter 
+from apps.Cultivo.plagas.api.router import plagasRouter 
+from apps.Cultivo.plantaciones.api.router import plantacionRouter 
+from apps.Cultivo.productos_control.api.router import productosControlRouter 
+from apps.Cultivo.programacion.api.router import programacionRouter 
+from apps.Cultivo.residuos.api.router import residuosRouter 
+from apps.Cultivo.semillero.api.router import semilleroRouter 
+from apps.Cultivo.tipo_actividad.api.router import tipoActividadRouter 
+from apps.Cultivo.tipo_control.api.router import tipoControlRouter 
+from apps.Cultivo.tipo_especies.api.router import tipoEspecieRouter 
+from apps.Cultivo.tipo_plaga.api.router import tipoPlagaRouter 
+from apps.Cultivo.tipos_residuos.api.router import tipoResiduoRouter 
+from apps.Cultivo.semillero_herramienta.api.router import semilleroHRouter
+from apps.Cultivo.semillero_insumo.api.router import semilleroInsumoRouter
+from apps.Cultivo.tareas.api.router import tareaRouter
+
 
 
 router = DefaultRouter()
+routerCultivo = DefaultRouter()
 
 router.registry.extend(salarioRouter.registry)
 router.registry.extend(PermisosRouter.registry)
@@ -19,6 +44,31 @@ router.registry.extend(RolPermisoRouter.registry)
 router.registry.extend(UsuarioRolRouter.registry)
 router.registry.extend(UsuariosRouter.registry)
 router.registry.extend(RolesAccionesRouter.registry)
+
+
+routerCultivo.registry.extend(actividadRouter.registry)
+routerCultivo.registry.extend(afeccionRouter.registry)
+routerCultivo.registry.extend(bancalRouter.registry)
+routerCultivo.registry.extend(controlRouter.registry)
+routerCultivo.registry.extend(cosechaRouter.registry)
+routerCultivo.registry.extend(cultivoRouter.registry)
+routerCultivo.registry.extend(especiesRouter.registry)
+routerCultivo.registry.extend(faseLunarRouter.registry)
+routerCultivo.registry.extend(lotesRouter.registry)
+routerCultivo.registry.extend(plagasRouter.registry)
+routerCultivo.registry.extend(plantacionRouter.registry)
+routerCultivo.registry.extend(productosControlRouter.registry)
+routerCultivo.registry.extend(programacionRouter.registry)
+routerCultivo.registry.extend(residuosRouter.registry)
+routerCultivo.registry.extend(semilleroRouter.registry)
+routerCultivo.registry.extend(tipoActividadRouter.registry)
+routerCultivo.registry.extend(tipoControlRouter.registry)
+routerCultivo.registry.extend(tipoEspecieRouter.registry)
+routerCultivo.registry.extend(tipoPlagaRouter.registry)
+routerCultivo.registry.extend(tipoResiduoRouter.registry)
+routerCultivo.registry.extend(semilleroHRouter.registry)
+routerCultivo.registry.extend(semilleroInsumoRouter.registry)
+routerCultivo.registry.extend(tareaRouter.registry)
 
 
 from drf_yasg.views import get_schema_view
@@ -41,6 +91,7 @@ urlpatterns = [
     path('docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('api/', include(router.urls)),
+    path('cultivo', include(routerCultivo.urls))
     path('', include('apps.Usuarios.usuarios.api.router')),
     
 ]
