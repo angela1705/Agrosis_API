@@ -35,6 +35,7 @@ from apps.Cultivo.tareas.api.router import tareaRouter
 
 
 
+
 router = DefaultRouter()
 routerCultivo = DefaultRouter()
 
