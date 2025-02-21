@@ -86,6 +86,7 @@ INSTALLED_APPS = [
     'apps.Cultivo.programacion',
     'apps.Cultivo.cosechas',
     'apps.Cultivo.lotes',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -117,6 +118,13 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Agrosoft.wsgi.application'
+ASGI_APPLICATION = "Agrosoft.asgi.application"
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
+    },
+}
 
 
 # Database
@@ -125,7 +133,7 @@ WSGI_APPLICATION = 'Agrosoft.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Agrosis',
+        'NAME': 'Django',
         'USER': 'postgres',
         'PASSWORD': 'root',
         'HOST': 'localhost', 

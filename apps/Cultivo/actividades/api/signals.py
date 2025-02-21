@@ -10,11 +10,12 @@ def notificar_asignacion_actividad(sender, instance, created, **kwargs):
         channel_layer = get_channel_layer()
         grupo_usuario = f"user_{instance.usuario.id}"
         mensaje = f"Tienes una nueva actividad: {instance.tipo_actividad}"
-
+        print(f"[SIGNAL] Enviando mensaje a {grupo_usuario}: {mensaje}")
+        
         async_to_sync(channel_layer.group_send)(
             grupo_usuario,
             {
-                "type": "send_notification",  # Este 'type' corresponde al método en el consumer.
+                "type": "send_notification",
                 "message": mensaje,
             }
         )

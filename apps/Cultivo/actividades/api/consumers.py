@@ -6,19 +6,17 @@ class ActividadConsumer(AsyncWebsocketConsumer):
         self.user_id = self.scope['url_route']['kwargs']['user_id']
         self.group_name = f"user_{self.user_id}"
         
-        # Unir el socket al grupo correspondiente
         await self.channel_layer.group_add(self.group_name, self.channel_name)
         await self.accept()
-    
+        print(f"[CONSUMER] Conectado: usuario {self.user_id} en grupo {self.group_name}")
+
     async def disconnect(self, close_code):
-        # Abandonar el grupo al desconectar
         await self.channel_layer.group_discard(self.group_name, self.channel_name)
-    
-    # Método que recibirá el mensaje del grupo
+        print(f"[CONSUMER] Desconectado: usuario {self.user_id} (código {close_code})")
+
     async def send_notification(self, event):
-        message = event['message']
-        
-        # Enviar el mensaje al cliente
+        message = event.get('message', '')
+        print(f"[CONSUMER] Mensaje recibido: {message}")
         await self.send(text_data=json.dumps({
             'message': message
         }))

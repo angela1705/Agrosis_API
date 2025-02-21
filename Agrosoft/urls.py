@@ -33,8 +33,10 @@ from apps.Cultivo.semillero_herramienta.api.router import semilleroHRouter
 from apps.Cultivo.semillero_insumo.api.router import semilleroInsumoRouter
 from apps.Cultivo.tareas.api.router import tareaRouter
 
+
+
 router = DefaultRouter()
-routerCultivos = DefaultRouter()
+routerCultivo = DefaultRouter()
 
 router.registry.extend(salarioRouter.registry)
 router.registry.extend(PermisosRouter.registry)
@@ -43,29 +45,30 @@ router.registry.extend(UsuarioRolRouter.registry)
 router.registry.extend(UsuariosRouter.registry)
 router.registry.extend(RolesAccionesRouter.registry)
 
-router.registry.extend(actividadRouter.registry)
-router.registry.extend(afeccionRouter.registry)
-router.registry.extend(bancalRouter.registry)
-router.registry.extend(controlRouter.registry)
-router.registry.extend(cosechaRouter.registry)
-router.registry.extend(cultivoRouter.registry)
-router.registry.extend(especiesRouter.registry)
-router.registry.extend(faseLunarRouter.registry)
-router.registry.extend(lotesRouter.registry)
-router.registry.extend(plagasRouter.registry)
-router.registry.extend(plantacionRouter.registry)
-router.registry.extend(productosControlRouter.registry)
-router.registry.extend(programacionRouter.registry)
-router.registry.extend(residuosRouter.registry)
-router.registry.extend(semilleroRouter.registry)
-router.registry.extend(tipoActividadRouter.registry)
-router.registry.extend(tipoControlRouter.registry)
-router.registry.extend(tipoEspecieRouter.registry)
-router.registry.extend(tipoPlagaRouter.registry)
-router.registry.extend(tipoResiduoRouter.registry)
-router.registry.extend(semilleroHRouter.registry)
-router.registry.extend(semilleroInsumoRouter.registry)
-router.registry.extend(tareaRouter.registry)
+
+routerCultivo.registry.extend(actividadRouter.registry)
+routerCultivo.registry.extend(afeccionRouter.registry)
+routerCultivo.registry.extend(bancalRouter.registry)
+routerCultivo.registry.extend(controlRouter.registry)
+routerCultivo.registry.extend(cosechaRouter.registry)
+routerCultivo.registry.extend(cultivoRouter.registry)
+routerCultivo.registry.extend(especiesRouter.registry)
+routerCultivo.registry.extend(faseLunarRouter.registry)
+routerCultivo.registry.extend(lotesRouter.registry)
+routerCultivo.registry.extend(plagasRouter.registry)
+routerCultivo.registry.extend(plantacionRouter.registry)
+routerCultivo.registry.extend(productosControlRouter.registry)
+routerCultivo.registry.extend(programacionRouter.registry)
+routerCultivo.registry.extend(residuosRouter.registry)
+routerCultivo.registry.extend(semilleroRouter.registry)
+routerCultivo.registry.extend(tipoActividadRouter.registry)
+routerCultivo.registry.extend(tipoControlRouter.registry)
+routerCultivo.registry.extend(tipoEspecieRouter.registry)
+routerCultivo.registry.extend(tipoPlagaRouter.registry)
+routerCultivo.registry.extend(tipoResiduoRouter.registry)
+routerCultivo.registry.extend(semilleroHRouter.registry)
+routerCultivo.registry.extend(semilleroInsumoRouter.registry)
+routerCultivo.registry.extend(tareaRouter.registry)
 
 
 from drf_yasg.views import get_schema_view
@@ -88,6 +91,7 @@ urlpatterns = [
     path('docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('api/', include(router.urls)),
+    path('cultivo', include(routerCultivo.urls))
     path('', include('apps.Usuarios.usuarios.api.router')),
     
 ]
