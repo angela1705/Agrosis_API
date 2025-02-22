@@ -1,10 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from apps.Usuarios.usuarios.models import Rol, Usuarios
-
-class RolSerializer(ModelSerializer):
-    class Meta:
-        model = Rol
-        fields = '__all__'
+from apps.Usuarios.usuarios.models import Usuarios
 
 class UsuarioSerializer(ModelSerializer):
     class Meta:

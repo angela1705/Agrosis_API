@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'apps.Usuarios.permisos',
     'apps.Usuarios.rol_permiso',
     'apps.Usuarios.usuarios',
+    'apps.Usuarios.roles',
     'apps.Usuarios.usuario_rol',
     'apps.Usuarios.roles_acciones',
     'apps.Cultivo.bancal',

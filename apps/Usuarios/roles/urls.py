@@ -1,6 +1,6 @@
 from django.urls import path
-from . import views
+from .api.routers import roles_urlpatterns
 
-urlpatterns = [
-    path('', views.listar_roles, name='listar_roles'),  # Lista de roles
-]
+app_name = 'roles'
+
+urlpatterns = [] + roles_urlpatterns
