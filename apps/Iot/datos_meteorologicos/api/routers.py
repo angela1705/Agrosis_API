@@ -7,4 +7,7 @@ Datos_metereologicosRouter = DefaultRouter()
 Datos_metereologicosRouter.register(prefix='datosmetereologicos',viewset=Datos_metereologicosViewset,basename='datosmetereologicos')
 
 
+websocket_urlpatterns = [
+    re_path(r"ws/meteo/$", DatosMeteorologicosConsumer.as_asgi()),
+]
 

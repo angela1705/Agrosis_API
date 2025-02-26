@@ -106,6 +106,7 @@ TEMPLATES = [
     },
 ]
 
+WSGI_APPLICATION = 'Agrosoft.wsgi.application'
 ASGI_APPLICATION = 'Agrosoft.asgi.application'
 
 CHANNEL_LAYERS = {

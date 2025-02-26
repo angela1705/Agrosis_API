@@ -2,11 +2,14 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
+from apps.Iot.datos_meteorologicos.api.routers import Datos_metereologicosRouter
+from apps.Iot.sensores.api.routers import SensoresRouter
 
 
 routerIOT = DefaultRouter()
 
-
+routerIOT.registry.extend(Datos_metereologicosRouter.registry)
+routerIOT.registry.extend(SensoresRouter.registry)
 
 
 
