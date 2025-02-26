@@ -1,0 +1,10 @@
+from .views import Datos_metereologicosViewset
+from rest_framework.routers import DefaultRouter
+from django.urls import re_path
+from apps.Iot.datos_meteorologicos.api.consumer import DatosMeteorologicosConsumer
+Datos_metereologicosRouter = DefaultRouter()
+
+Datos_metereologicosRouter.register(prefix='datosmetereologicos',viewset=Datos_metereologicosViewset,basename='datosmetereologicos')
+
+
+
