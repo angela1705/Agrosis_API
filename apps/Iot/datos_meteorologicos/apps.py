@@ -3,4 +3,4 @@ from django.apps import AppConfig
 
 class DatosMeteorologicosConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'datos_meteorologicos'
+    name = 'apps.Iot.datos_meteorologicos'

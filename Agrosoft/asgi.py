@@ -14,15 +14,17 @@ from django.core.asgi import get_asgi_application
 from channels.routing import ProtocolTypeRouter, URLRouter
 from channels.auth import AuthMiddlewareStack
 
-
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Agrosoft.settings')
 django.setup()
 
 from apps.Iot.datos_meteorologicos.api.routers import websocket_urlpatterns as meteo_ws
+from apps.Cultivo.actividades.api.routing import websocket_urlpatterns as actividad_ws
 
 application = ProtocolTypeRouter({
     "http": get_asgi_application(),
-    "websocket": AuthMiddlewareStack(  # Agregamos AuthMiddlewareStack para WebSockets autenticados
-        URLRouter(meteo_ws)
+    "websocket": AuthMiddlewareStack(
+        URLRouter(
+            meteo_ws + actividad_ws
+        )
     ),
 })
