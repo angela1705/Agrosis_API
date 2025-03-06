@@ -5,7 +5,6 @@ from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 from apps.Inventario.bodega_insumo.models import BodegaInsumo
 from channels.layers import get_channel_layer
-from django.urls import re_path
 
 class BodegaInsumoConsumer(AsyncWebsocketConsumer):
     async def connect(self):
@@ -36,13 +35,20 @@ class BodegaInsumoConsumer(AsyncWebsocketConsumer):
 @receiver(post_delete, sender=BodegaInsumo)
 def insumo_updated(sender, instance, **kwargs):
     channel_layer = get_channel_layer()
+
     async def send_update():
         await channel_layer.group_send(
             "bodega_insumo",
-            {"type": "send_update", "message": {"id": instance.id, "bodega": instance.bodega.nombre, "insumo": instance.insumo.nombre, "cantidad": instance.cantidad, "accion": "update"}}
+            {
+                "type": "send_update",
+                "message": {
+                    "id": instance.id,
+                    "bodega": instance.bodega.nombre,
+                    "insumo": instance.insumo.nombre,
+                    "cantidad": instance.cantidad,
+                    "accion": "update"
+                }
+            }
         )
-    sync_to_async(send_update)()
 
-websocket_urlpatterns = [
-    re_path(r'ws/inventario/bodega_insumo/$', BodegaInsumoConsumer.as_asgi()),
-]
+    sync_to_async(send_update)()
