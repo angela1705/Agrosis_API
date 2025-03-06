@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 INSTALLED_APPS = [
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -79,7 +80,7 @@ INSTALLED_APPS = [
     'apps.Inventario.bodega_herramienta',
     'apps.Inventario.herramientas',
     'apps.Inventario.insumos',
-     'rest_framework',
+    'rest_framework',
     'rest_framework_simplejwt',
     'drf_yasg',
     'apps.Cultivo.residuos',
@@ -137,7 +138,7 @@ DATABASES = {
         'NAME': 'Django',
         'USER': 'postgres',
         'PASSWORD': 'root',
-        'HOST': 'localhost', 
+        'HOST': 'localhost',
         'PORT': '5432',
         'OPTIONS': {
             'client_encoding': 'UTF8',
