@@ -1,7 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-
 # Router Usuarios
 from apps.Usuarios.permisos.api.routers import PermisosRouter
 from apps.Usuarios.rol_permiso.api.routers import RolPermisoRouter
@@ -47,19 +46,11 @@ from apps.Inventario.bodega_insumo.api.routers import bodegaInsumoRouter
 from apps.Inventario.herramientas.api.routers import herramientaRouter
 from apps.Inventario.insumos.api.routers import insumoRouter
 
-# Router IOT
-from apps.Iot.configuraciones.api.routers import ConfiguracionesRouter
 from apps.Iot.datos_meteorologicos.api.routers import Datos_metereologicosRouter
-from apps.Iot.evotranspiraciones.api.routers import EvapotranspiracionesRouter
-from apps.Iot.humedadambiental.api.routers import HumedadAmbientalRouter
-from apps.Iot.humedadterreno.api.routers import HumedadTerrenoRouter
-from apps.Iot.iluminaciones.api.routers import IluminacionesRouter
 from apps.Iot.sensores.api.routers import SensoresRouter
-from apps.Iot.temperaturas.api.routers import TemperaturasRouter
-from apps.Iot.velocidadviento.api.routers import VelocidadVientoRouter
 
-# Crear routers
-router = DefaultRouter()
+
+routerIOT = DefaultRouter()
 routerUsuarios = DefaultRouter()
 routerCultivo = DefaultRouter()
 routerFinanzas = DefaultRouter()
@@ -111,26 +102,19 @@ routerInventario.registry.extend(bodegaInsumoRouter.registry)
 routerInventario.registry.extend(herramientaRouter.registry)
 routerInventario.registry.extend(insumoRouter.registry)
 
-# IoT
-routerIot.registry.extend(ConfiguracionesRouter.registry)
-routerIot.registry.extend(Datos_metereologicosRouter.registry)
-routerIot.registry.extend(EvapotranspiracionesRouter.registry)
-routerIot.registry.extend(HumedadAmbientalRouter.registry)
-routerIot.registry.extend(HumedadTerrenoRouter.registry)
-routerIot.registry.extend(IluminacionesRouter.registry)
-routerIot.registry.extend(SensoresRouter.registry)
-routerIot.registry.extend(TemperaturasRouter.registry)
-routerIot.registry.extend(VelocidadVientoRouter.registry)
+routerIOT.registry.extend(Datos_metereologicosRouter.registry)
+routerIOT.registry.extend(SensoresRouter.registry)
 
-# Documentación API
+
+
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
 schema_view = get_schema_view(
    openapi.Info(
-      title="Documentación API",
+      title="documentacion API",
       default_version='v0.1',
-      description="Descripción de la API",
+      description="Test description",
       terms_of_service="https://www.google.com/policies/terms/",
       contact=openapi.Contact(email="contact@snippets.local"),
       license=openapi.License(name="BSD License"),
@@ -142,12 +126,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
-    path('api/', include(router.urls)),
-    path('usuarios/', include(routerUsuarios.urls)),
-    path('cultivo/', include(routerCultivo.urls)),
-    path('iot/', include(routerIot.urls)),
-    path('finanzas/', include(routerFinanzas.urls)),
-    path('inventario/', include(routerInventario.urls)),
-    path('', include('apps.Usuarios.usuarios.api.router')),
-]
+    path('api/iot/', include (routerIOT.urls)),
+    path('api/cultivo/', include (routerCultivo.urls)),
+    path('api/finanzas/', include (routerFinanzas.urls)),
+    path('api/inventario/', include (routerInventario.urls)),
+    path('api/usuarios/', include (routerUsuarios.urls)),
 
+]
